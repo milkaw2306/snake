@@ -112,6 +112,13 @@ namespace Snake
             viewModelGames.Add(viewModelGamesPlayer);
             return viewModelGames.FindIndex(x => x == viewModelGamesPlayer);
         }
+        public static void SaveLeaders()
+        {
+            string json = JsonConvert.SerializeObject(Leaders);
+            StreamWriter SW = new StreamWriter("./leadens.txt");
+            SW.WriteLine(json);
+            SW.Close();
+        }
     }
 }
 
